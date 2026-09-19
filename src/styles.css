@@ -1,0 +1,254 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system: Workshop Robotics — cream paper and dusty blue.
+ * Semantic tokens map to utilities via @theme inline.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-ink: var(--ink);
+  --color-panel: var(--panel);
+  --color-line: var(--line);
+  --color-teal: var(--teal);
+  --color-cool: var(--cool);
+  --color-mist: var(--mist);
+  --color-paper: var(--paper);
+}
+
+@theme {
+  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-heading: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-body: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+  --font-pixel: "Silkscreen", ui-monospace, "Courier New", monospace;
+}
+
+:root {
+  --radius: 0.25rem;
+  --ink: #2f3436;
+  --panel: #fffefa;
+  --line: #d8d3c8;
+  --teal: #506a75;
+  --cool: #9aaeb8;
+  --mist: #606769;
+  --paper: #fcfaf4;
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--panel);
+  --card-foreground: var(--ink);
+  --popover: var(--panel);
+  --popover-foreground: var(--ink);
+  --primary: var(--teal);
+  --primary-foreground: #ffffff;
+  --secondary: #eee9dd;
+  --secondary-foreground: var(--ink);
+  --muted: #eee9dd;
+  --muted-foreground: var(--mist);
+  --accent: var(--cool);
+  --accent-foreground: var(--ink);
+  --destructive: oklch(0.65 0.2 25);
+  --destructive-foreground: #ffffff;
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--teal);
+}
+
+@keyframes caret-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pixel-grid {
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--line) 45%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--line) 45%, transparent) 1px, transparent 1px);
+  background-size: 12px 12px;
+}
+
+.pixel-dots {
+  background-image: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--teal) 40%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 10px 10px;
+}
+
+.pixel-title {
+  font-family: var(--font-pixel);
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  line-height: 1.12;
+  text-wrap: balance;
+  text-shadow:
+    3px 3px 0 var(--line),
+    6px 6px 0 color-mix(in oklab, var(--cool) 42%, transparent);
+}
+
+.pixel-title-accent {
+  color: var(--primary);
+  text-shadow:
+    3px 3px 0 var(--background),
+    6px 6px 0 color-mix(in oklab, var(--cool) 58%, transparent);
+}
+
+.pixel-wordmark {
+  position: relative;
+  display: inline-flex;
+  isolation: isolate;
+  padding: 0.45rem 0.45rem 0.6rem;
+  font-family: var(--font-pixel);
+  font-size: clamp(0.9rem, 2vw, 1.08rem);
+  font-weight: 700;
+  letter-spacing: -0.09em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: transform 120ms steps(2, end);
+}
+
+.pixel-wordmark::before {
+  position: absolute;
+  top: 0.1rem;
+  right: 0.4rem;
+  width: 0.22rem;
+  height: 0.22rem;
+  background: #e55546;
+  box-shadow:
+    0.32rem 0 #347cac,
+    0.64rem 0 #bd7107;
+  content: "";
+}
+
+.pixel-wordmark::after {
+  position: absolute;
+  right: 0.45rem;
+  bottom: 0.2rem;
+  left: 0.45rem;
+  height: 0.2rem;
+  border: 1px solid var(--ink);
+  background: linear-gradient(90deg, #e55546 0 33%, #347cac 33% 67%, #bd7107 67% 100%);
+  box-shadow: 2px 2px 0 var(--line);
+  content: "";
+}
+
+.pixel-wordmark > span {
+  position: relative;
+  text-shadow:
+    1px 0 0 var(--background),
+    0 1px 0 var(--background),
+    2px 2px 0 color-mix(in oklab, var(--ink) 28%, transparent);
+}
+
+.pixel-wordmark-robot {
+  color: #c94338;
+}
+
+.pixel-wordmark-code {
+  color: #28678f;
+}
+
+.pixel-wordmark-hub {
+  color: #a85f00;
+}
+
+.pixel-wordmark:hover {
+  transform: translate(-1px, -1px);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--cool) 45%, transparent);
+    color: var(--ink);
+  }
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  transform: translateY(-200%);
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.75rem 1rem;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+@utility caret-blink {
+  animation: caret-blink 1s steps(1) infinite;
+}
+
+@utility rise-in {
+  animation: rise-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
