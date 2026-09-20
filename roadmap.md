@@ -1,11 +1,11 @@
 # Roadmap
 - [x] Expand all course lessons into explanation-led teaching, not code snippets
-- [x] Apply RobotCodeHub and www.robotcodehub.com branding consistently
+- [x] Apply Code The Robot and www.codetherobot.com branding consistently
 - [x] Build full Industrial Robots lessons with verified ROS 2 and C++ material
 - [x] Build ROS 2 lab pages with setup, tutorials, and workspace links
 - [x] Replace free-course placeholder prices and wire home badges
 - [x] Verify $30 test checkout unlock flow
 - [x] Browser practice labs: 32 C++/ROS 2 exercises, real GCC compiling, automated checks, saved progress
 - [ ] Verify refund revocation after provider processing
-- [x] Publish RobotCodeHub preview (current content changes await republish)
+- [x] Publish Code The Robot preview (current content changes await republish)
 - [ ] Complete provider verification and configure live payment webhook (legal seller name confirmed: RobotHub)

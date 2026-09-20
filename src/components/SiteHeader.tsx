@@ -9,10 +9,10 @@ export function SiteHeader() {
   return (
     <header className="border-b border-border bg-background/95">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-3">
-        <Link to="/" className="pixel-wordmark" aria-label="RobotCodeHub home">
-          <span className="pixel-wordmark-robot">Robot</span>
-          <span className="pixel-wordmark-code">Code</span>
-          <span className="pixel-wordmark-hub">Hub</span>
+        <Link to="/" className="pixel-wordmark" aria-label="Code The Robot home">
+          <span className="pixel-wordmark-robot">Code</span>
+          <span className="pixel-wordmark-code">The</span>
+          <span className="pixel-wordmark-hub">Robot</span>
         </Link>
         <nav aria-label="Primary" className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
           <Link to="/" hash="courses" className="text-muted-foreground hover:text-foreground">

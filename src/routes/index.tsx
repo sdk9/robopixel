@@ -12,19 +12,19 @@ const robots = "/images/industrial-robots-1280.webp";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "RobotCodeHub — Practical C++, ROS 2 and robotics courses" },
+      { title: "Code The Robot — Practical C++, ROS 2 and robotics courses" },
       {
         name: "description",
         content:
-          "Learn Ubuntu Linux, C++, ROS 2 Lyrical Luth and seven industrial robot models in one practical course path.",
+          "Learn Ubuntu Linux, C++, ROS 2 Lyrical Luth and 235 lessons on seven industrial robot types in one practical course path.",
       },
-      { property: "og:title", content: "RobotCodeHub" },
+      { property: "og:title", content: "Code The Robot" },
       { property: "og:description", content: "Practical, documentation-led robotics courses." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://robotcodehub.com/" },
+      { property: "og:url", content: "https://codetherobot.com/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://robotcodehub.com/" }],
+    links: [{ rel: "canonical", href: "https://codetherobot.com/" }],
   }),
   component: Index,
 });
@@ -64,12 +64,13 @@ const courses = [
   {
     number: "04",
     title: courseCatalog.industrial.title,
-    description: "Program seven robot types with safety, kinematics, planning, C++ and ROS 2.",
+    description:
+      "235 lessons on seven robot types: kinematics, control, vision, safety, C++ and ROS 2.",
     price: courseCatalog.industrial.price,
     image: robots,
     alt: "Pixel-art industrial robot arm in a safety cell",
     to: "/courses/industrial-robots" as const,
-    details: "7 models · permanent access",
+    details: "7 modules · 235 lessons · permanent access",
   },
 ];
 
@@ -245,7 +246,7 @@ function Index() {
       </main>
       <footer className="border-t border-border">
         <div className="mx-auto flex max-w-6xl flex-wrap justify-between gap-4 px-5 py-6 text-xs text-muted-foreground">
-          <span>RobotCodeHub · www.robotcodehub.com</span>
+          <span>Code The Robot · www.codetherobot.com</span>
           <nav className="flex gap-5">
             <Link to="/terms">Terms</Link>
             <Link to="/refunds">Refunds</Link>

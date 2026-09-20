@@ -61,7 +61,7 @@ function withSecurityHeaders(response: Response, request: Request) {
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com data:",
       "img-src 'self' data: blob: https://*.paddle.com",
-      `connect-src 'self' ${supabaseOrigin} wss://*.supabase.co https://*.lovable.app https://*.lovable.dev https://*.paddle.com https://connector-gateway.lovable.dev https://wandbox.org https://godbolt.org`,
+      `connect-src 'self' ${supabaseOrigin} wss://*.supabase.co https://*.paddle.com https://wandbox.org https://godbolt.org`,
       "frame-src https://*.paddle.com",
       "worker-src 'self' blob:",
       "upgrade-insecure-requests",

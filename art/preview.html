@@ -1,0 +1,44 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Robot sprite preview</title>
+<style>
+  body { background:#16232d; color:#dff6ff; font:14px system-ui; margin:24px; }
+  h1 { font-size:20px } h2 { font-size:14px; margin:28px 0 8px; color:#ffce47 }
+  .row { display:flex; flex-wrap:wrap; gap:16px }
+  .card { background:#1d2d38; border:2px solid #101820; padding:10px; text-align:center }
+  canvas { image-rendering:pixelated; display:block; margin:0 auto 6px; background:#263746 }
+  small { color:#9fb3bf }
+</style>
+<h1>Code The Robot robot sprites (drawn in Aseprite) &mdash; animated</h1>
+<div id="root"></div>
+<script>
+const groups = {
+  "Articulated arm / Cobot": [["arm-base",24,14,4,.25],["cobot-base",24,14,4,.25],["joint",10,10,4,.2],["arm-gripper",16,16,3,.6],["cobot-gripper",16,16,3,.6],["crate",10,9,1,1]],
+  "SCARA": [["scara-head",16,18,4,.25],["scara-tool",12,16,4,.2],["plate",14,5,1,1]],
+  "Delta": [["delta-frame",108,8,4,.2],["delta-platform",22,12,4,.2]],
+  "Cartesian gantry": [["gantry-rail",168,7,4,.2],["gantry-carriage",16,14,4,.25],["gantry-tool",14,9,4,.2],["scan-pulse",32,32,5,.18]],
+  "Humanoid": [["humanoid-idle",48,48,4,.3],["humanoid-walk",48,48,6,.12],["humanoid-signal",48,48,4,.25]],
+  "Mobile robot (AMR)": [["amr-body",36,32,4,.1],["amr-lidar",12,6,4,.15],["amr-crate",20,10,1,1]],
+  "Conveyor belt": [["belt",165,18,4,.12]]
+};
+const root = document.getElementById("root"), anims = [];
+for (const [title, list] of Object.entries(groups)) {
+  const h = document.createElement("h2"); h.textContent = title; root.append(h);
+  const row = document.createElement("div"); row.className = "row"; root.append(row);
+  for (const [name, w, h2, n, d] of list) {
+    const scale = w > 60 ? 3 : 8, img = new Image();
+    img.src = "../public/images/robots/" + name + ".png";
+    const card = document.createElement("div"); card.className = "card";
+    const c = document.createElement("canvas"); c.width = w*scale; c.height = h2*scale;
+    const s = document.createElement("small"); s.textContent = name + " (" + n + " frame" + (n>1?"s":"") + ")";
+    card.append(c, s); row.append(card);
+    let f = 0;
+    const ctx = c.getContext("2d"); ctx.imageSmoothingEnabled = false;
+    img.onload = () => setInterval(() => {
+      ctx.clearRect(0,0,c.width,c.height);
+      ctx.drawImage(img, f*w, 0, w, h2, 0, 0, c.width, c.height);
+      f = (f+1) % n;
+    }, d*1000);
+  }
+}
+</script>

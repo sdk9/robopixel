@@ -27,7 +27,7 @@ async function compileWithWandbox(code: string) {
     body: JSON.stringify({
       compiler: "gcc-head",
       code,
-      options: "warning,c++23",
+      options: "warning,c++17",
       "compiler-option-raw": "-pthread",
       save: false,
     }),
@@ -58,7 +58,7 @@ async function compileWithGodbolt(code: string) {
     body: JSON.stringify({
       source: code,
       options: {
-        userArguments: "-O1 -std=c++23 -pthread",
+        userArguments: "-O1 -std=c++17 -pthread",
         executeParameters: { args: [], stdin: "" },
         compilerOptions: { executorRequest: true },
         filters: { execute: true },

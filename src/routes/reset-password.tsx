@@ -8,12 +8,12 @@ import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
 
 const title = "Choose a new password";
-const description = "Set a new password for your RobotCodeHub account.";
+const description = "Set a new password for your Code The Robot account.";
 
 export const Route = createFileRoute("/reset-password")({
   head: () => ({
     meta: [
-      { title: `${title} | RobotCodeHub` },
+      { title: `${title} | Code The Robot` },
       { name: "description", content: description },
       { name: "robots", content: "noindex, nofollow" },
       { property: "og:title", content: title },
@@ -50,7 +50,7 @@ function ResetPassword() {
     <main className="grid min-h-screen place-items-center bg-background px-5 py-12 text-foreground">
       <div className="w-full max-w-md border border-border bg-card p-7">
         <Link to="/" className="font-heading text-xl">
-          RobotCodeHub
+          Code The Robot
         </Link>
         <h1 className="mt-5 font-heading text-4xl leading-tight">{title}</h1>
         {done ? (

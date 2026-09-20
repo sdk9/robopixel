@@ -9,15 +9,15 @@ import { courseCatalog, SUPPORT_EMAIL } from "@/lib/course-catalog";
 import { getAccountOverview, restorePurchase } from "@/lib/payments.functions";
 
 const title = "My account";
-const description = "See your RobotCodeHub purchase, practice progress and billing details.";
+const description = "See your Code The Robot purchase, practice progress and billing details.";
 
 export const Route = createFileRoute("/account")({
   head: () => ({
     meta: [
-      { title: `${title} | RobotCodeHub` },
+      { title: `${title} | Code The Robot` },
       { name: "description", content: description },
       { name: "robots", content: "noindex, nofollow" },
-      { property: "og:title", content: `RobotCodeHub — ${title}` },
+      { property: "og:title", content: `Code The Robot — ${title}` },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -166,7 +166,7 @@ function Account() {
               ) : (
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   You have not purchased this course yet. It is {courseCatalog.industrial.price} and
-                  includes all seven robot models permanently.
+                  includes all 235 lessons in seven robot modules permanently.
                 </p>
               )}
               <div className="mt-5 flex flex-wrap gap-3">

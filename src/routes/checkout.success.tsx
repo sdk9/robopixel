@@ -13,7 +13,7 @@ const description = "Confirmation and course access for the Industrial Robots co
 export const Route = createFileRoute("/checkout/success")({
   head: () => ({
     meta: [
-      { title: `${title} | RobotCodeHub` },
+      { title: `${title} | Code The Robot` },
       { name: "description", content: description },
       { name: "robots", content: "noindex, nofollow" },
       { property: "og:title", content: title },

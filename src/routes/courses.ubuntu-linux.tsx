@@ -5,15 +5,15 @@ import { ubuntuCourse as course } from "@/lib/documented-courses";
 export const Route = createFileRoute("/courses/ubuntu-linux")({
   head: () => ({
     meta: [
-      { title: "Ubuntu Linux for Robotics | RobotCodeHub" },
+      { title: "Ubuntu Linux for Robotics | Code The Robot" },
       { name: "description", content: course.summary },
       { property: "og:title", content: course.title },
       { property: "og:description", content: course.summary },
-      { property: "og:url", content: "https://robotcodehub.com/courses/ubuntu-linux" },
+      { property: "og:url", content: "https://codetherobot.com/courses/ubuntu-linux" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://robotcodehub.com/courses/ubuntu-linux" }],
+    links: [{ rel: "canonical", href: "https://codetherobot.com/courses/ubuntu-linux" }],
   }),
   component: () => <DocumentedCoursePage course={course} />,
 });

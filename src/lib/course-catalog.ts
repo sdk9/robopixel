@@ -7,7 +7,7 @@ export const courseCatalog = {
   },
   cpp: {
     id: "cpp",
-    title: "C++ for Robotics",
+    title: "C++17 for Robotics",
     price: "Free",
     href: "/courses/cpp-beginner",
   },
@@ -28,4 +28,4 @@ export const courseCatalog = {
 
 export type FreeCourseId = "ubuntu" | "beginner" | "intermediate" | "advanced" | "ros2";
 
-export const SUPPORT_EMAIL = "support@robotcodehub.com";
+export const SUPPORT_EMAIL = "contact@codetherobot.com";

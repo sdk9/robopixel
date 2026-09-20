@@ -2,13 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage, LegalSection } from "@/components/LegalPage";
 import { legalConfig } from "@/lib/legal-config";
 
-const description = "Terms and conditions for RobotCodeHub robotics courses.";
+const description = "Terms and conditions for Code The Robot robotics courses.";
 export const Route = createFileRoute("/terms")({
   head: () => ({
     meta: [
-      { title: "Terms & Conditions | RobotCodeHub" },
+      { title: "Terms & Conditions | Code The Robot" },
       { name: "description", content: description },
-      { property: "og:title", content: "RobotCodeHub Terms & Conditions" },
+      { property: "og:title", content: "Code The Robot Terms & Conditions" },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -22,7 +22,7 @@ function Terms() {
     <LegalPage title="Terms & Conditions" updated="18 September 2026">
       <LegalSection title="1. Who these terms are with">
         <p>
-          RobotCodeHub is operated by {legalConfig.businessName}, at {legalConfig.postalAddress}.
+          Code The Robot is operated by {legalConfig.businessName}, at {legalConfig.postalAddress}.
           When you use the site or enroll in a course, you contract with that operator. Questions
           can be sent to{" "}
           <a className="underline" href={`mailto:${legalConfig.email}`}>
@@ -33,7 +33,7 @@ function Terms() {
       </LegalSection>
       <LegalSection title="2. The courses">
         <p>
-          RobotCodeHub provides online educational materials about Ubuntu Linux, C++, ROS 2 and
+          Code The Robot provides online educational materials about Ubuntu Linux, C++, ROS 2 and
           industrial robotics. Course material is educational and is not a substitute for
           manufacturer training, workplace risk assessment, qualified supervision or compliance with
           local safety law.
@@ -73,7 +73,7 @@ function Terms() {
       </LegalSection>
       <LegalSection title="6. Ownership">
         <p>
-          The RobotCodeHub operator retains ownership of the site, course materials, software,
+          The Code The Robot operator retains ownership of the site, course materials, software,
           documentation and branding. Enrollment grants only the personal course-use licence
           described above.
         </p>
@@ -88,15 +88,15 @@ function Terms() {
       </LegalSection>
       <LegalSection title="8. Suspension and termination">
         <p>
-          RobotCodeHub may suspend or terminate access for a material breach, non-payment, fraud or
-          security risk, or repeated or serious policy violations. Access removed after an approved
-          refund follows the Refund Policy.
+          Code The Robot may suspend or terminate access for a material breach, non-payment, fraud
+          or security risk, or repeated or serious policy violations. Access removed after an
+          approved refund follows the Refund Policy.
         </p>
       </LegalSection>
       <LegalSection title="9. Liability">
         <p>
           To the fullest extent permitted by law, the service is provided without implied warranties
-          of merchantability or fitness for a particular purpose. RobotCodeHub is not liable for
+          of merchantability or fitness for a particular purpose. Code The Robot is not liable for
           indirect, consequential or special loss. Nothing limits liability where doing so is
           unlawful, including for fraud, death or personal injury caused by negligence.
         </p>

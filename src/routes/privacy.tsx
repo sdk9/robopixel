@@ -2,13 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage, LegalSection } from "@/components/LegalPage";
 import { legalConfig } from "@/lib/legal-config";
 
-const description = "How RobotCodeHub collects, uses, shares and protects personal data.";
+const description = "How Code The Robot collects, uses, shares and protects personal data.";
 export const Route = createFileRoute("/privacy")({
   head: () => ({
     meta: [
-      { title: "Privacy Notice | RobotCodeHub" },
+      { title: "Privacy Notice | Code The Robot" },
       { name: "description", content: description },
-      { property: "og:title", content: "RobotCodeHub Privacy Notice" },
+      { property: "og:title", content: "Code The Robot Privacy Notice" },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -22,7 +22,7 @@ function Privacy() {
     <LegalPage title="Privacy Notice" updated="18 September 2026">
       <LegalSection title="1. Data controller">
         <p>
-          {legalConfig.businessName}, trading as RobotCodeHub, is the data controller. Postal
+          {legalConfig.businessName}, trading as Code The Robot, is the data controller. Postal
           address: {legalConfig.postalAddress}. Privacy requests can be sent to{" "}
           <a className="underline" href={`mailto:${legalConfig.email}`}>
             {legalConfig.email}
@@ -48,10 +48,10 @@ function Privacy() {
       </LegalSection>
       <LegalSection title="4. Who receives data">
         <p>
-          Supabase provides authentication and database services; Lovable and its infrastructure
-          providers support hosting and application delivery; Paddle receives order data as Merchant
-          of Record for purchases, tax, invoices and refunds. Data may also be disclosed to
-          professional advisers or authorities where legally required. We do not sell personal data.
+          Supabase provides authentication and database services; our hosting and infrastructure
+          providers support application delivery; Paddle receives order data as Merchant of Record
+          for purchases, tax, invoices and refunds. Data may also be disclosed to professional
+          advisers or authorities where legally required. We do not sell personal data.
         </p>
       </LegalSection>
       <LegalSection title="5. Retention">

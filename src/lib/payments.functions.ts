@@ -141,12 +141,12 @@ export const restorePurchase = createServerFn({ method: "POST" })
       windowSeconds: 3600,
       subject: context.userId,
     });
-    const { gatewayFetch, getConfiguredPaddleEnvironment, getIndustrialPriceId } =
+    const { paddleApiFetch, getConfiguredPaddleEnvironment, getIndustrialPriceId } =
       await import("@/lib/paddle.server");
     const environment = getConfiguredPaddleEnvironment();
     const expectedPriceId = await getIndustrialPriceId(environment);
 
-    const customerResponse = await gatewayFetch(
+    const customerResponse = await paddleApiFetch(
       environment,
       `/customers?email=${encodeURIComponent(email)}`,
     );
@@ -159,7 +159,7 @@ export const restorePurchase = createServerFn({ method: "POST" })
 
     const transactions: PaddleTransaction[] = [];
     for (const customerId of customerIds) {
-      const response = await gatewayFetch(
+      const response = await paddleApiFetch(
         environment,
         `/transactions?customer_id=${encodeURIComponent(customerId)}&status=completed&per_page=50`,
       );

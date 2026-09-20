@@ -83,7 +83,7 @@ export function IndustrialCheckout() {
       </div>
       <ul className="mt-5 space-y-2 text-sm">
         {[
-          "All seven robot models",
+          "235 lessons across seven robot modules",
           "Permanent account access",
           "C++ and ROS 2 integration labs",
         ].map((item) => (

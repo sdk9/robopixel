@@ -110,7 +110,7 @@ export const Route = createFileRoute("/api/public/payments/webhook")({
 
             const intentId = transaction.custom_data?.purchaseIntentId;
             if (!intentId) {
-              note = "ignored transaction without a RobotCodeHub purchase intent";
+              note = "ignored transaction without a Code The Robot purchase intent";
             } else {
               const { getIndustrialPriceId } = await import("@/lib/paddle.server");
               const expectedPriceId = await getIndustrialPriceId(environment);

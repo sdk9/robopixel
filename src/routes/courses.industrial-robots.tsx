@@ -4,24 +4,25 @@ import { IndustrialCheckout } from "@/components/IndustrialCheckout";
 import { PixelArtFrame } from "@/components/PixelArtFrame";
 import { lessonCourses } from "@/lib/lesson-catalog";
 import { courseCatalog } from "@/lib/course-catalog";
+import { industrialModules, industrialOutline } from "@/lib/industrial-outline";
 
-const title = "Industrial Robots — Seven Robot Models";
-const description = `Learn safety, kinematics, simulation, controllers, C++ and ROS 2 integration across seven industrial robot types for a ${courseCatalog.industrial.price} payment.`;
+const title = "Industrial Robots — 7 Modules, 235 Lessons";
+const description = `Learn safety, kinematics, simulation, controllers, C++ and ROS 2 integration across 235 lessons on seven industrial robot types for a ${courseCatalog.industrial.price} payment.`;
 
 const industrialLessons = lessonCourses["industrial-robots"]?.lessons ?? [];
 
 export const Route = createFileRoute("/courses/industrial-robots")({
   head: () => ({
     meta: [
-      { title: `${title} | RobotCodeHub` },
+      { title: `${title} | Code The Robot` },
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://robotcodehub.com/courses/industrial-robots" },
+      { property: "og:url", content: "https://codetherobot.com/courses/industrial-robots" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://robotcodehub.com/courses/industrial-robots" }],
+    links: [{ rel: "canonical", href: "https://codetherobot.com/courses/industrial-robots" }],
   }),
   component: IndustrialRobotsPage,
 });
@@ -41,7 +42,7 @@ function IndustrialRobotsPage() {
           <div>
             <p className="text-sm font-medium uppercase text-primary">Industrial Robots</p>
             <h1 className="pixel-title mt-4 max-w-3xl text-4xl sm:text-5xl md:text-6xl">
-              Seven machines. One practical control course.
+              Seven machines. 235 lessons.
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
               Move from safe setup and coordinate frames to planning, simulation, controllers, and
@@ -62,38 +63,44 @@ function IndustrialRobotsPage() {
         <section className="border-y border-border bg-secondary">
           <div className="mx-auto max-w-6xl px-5 py-12">
             <p className="text-sm uppercase text-primary">The fleet</p>
-            <h2 className="mt-2 font-heading text-4xl">Seven distinct robot models</h2>
+            <h2 className="mt-2 font-heading text-4xl">
+              Seven robot modules, {industrialOutline.length} lessons
+            </h2>
             <ol className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {industrialLessons.map((lesson, index) => (
-                <li
-                  key={lesson.slug}
-                  className="group border border-border bg-background p-3 shadow-[4px_4px_0_var(--line)]"
-                >
-                  <Link
-                    to="/lessons/$courseSlug/$lessonSlug"
-                    params={{ courseSlug: "industrial-robots", lessonSlug: lesson.slug }}
-                    className="block"
+              {industrialModules.map((module) => {
+                const first = industrialLessons.find((lesson) => lesson.module === module.title);
+                const count = module.sections.reduce((n, s) => n + s.lessons.length, 0);
+                return (
+                  <li
+                    key={module.number}
+                    className="group border border-border bg-background p-3 shadow-[4px_4px_0_var(--line)]"
                   >
-                    {lesson.image && (
-                      <img
-                        src={lesson.image.src.replace("-1280", "-640")}
-                        alt={lesson.image.alt}
-                        width={640}
-                        height={384}
-                        loading="lazy"
-                        decoding="async"
-                        className="aspect-[16/9] w-full border border-foreground/15 object-cover transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                      />
-                    )}
-                    <span className="mt-3 block font-mono text-[10px] uppercase tracking-[.14em] text-primary">
-                      Module {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <strong className="mt-1 block font-heading text-2xl font-normal">
-                      {lesson.title}
-                    </strong>
-                  </Link>
-                </li>
-              ))}
+                    <Link
+                      to="/lessons/$courseSlug/$lessonSlug"
+                      params={{ courseSlug: "industrial-robots", lessonSlug: first?.slug ?? "" }}
+                      className="block"
+                    >
+                      {first?.image && (
+                        <img
+                          src={first.image.src.replace("-1280", "-640")}
+                          alt={first.image.alt}
+                          width={640}
+                          height={384}
+                          loading="lazy"
+                          decoding="async"
+                          className="aspect-[16/9] w-full border border-foreground/15 object-cover transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        />
+                      )}
+                      <span className="mt-3 block font-mono text-[10px] uppercase tracking-[.14em] text-primary">
+                        Module {module.number} · {count} lessons
+                      </span>
+                      <strong className="mt-1 block font-heading text-2xl font-normal">
+                        {module.title}
+                      </strong>
+                    </Link>
+                  </li>
+                );
+              })}
             </ol>
           </div>
         </section>
@@ -121,29 +128,59 @@ function IndustrialRobotsPage() {
         <section className="border-y border-border bg-secondary">
           <div className="mx-auto max-w-6xl px-5 py-12">
             <p className="text-sm uppercase text-primary">Course lessons</p>
-            <h2 className="mt-2 font-heading text-4xl">Seven practical robot modules</h2>
+            <h2 className="mt-2 font-heading text-4xl">
+              {industrialOutline.length} lessons in seven modules
+            </h2>
             <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
-              Lesson pages unlock after the one-time purchase.
+              Every lesson has a concept, guided steps, a code example with a note under each line,
+              an exercise and a checklist. Lesson pages unlock after the one-time purchase.
             </p>
-            <ol className="mt-6 border-t border-border">
-              {industrialLessons.map((lesson, index) => (
-                <li
-                  key={lesson.slug}
-                  className="grid gap-3 border-b border-border py-5 md:grid-cols-[4rem_16rem_1fr_auto] md:items-center"
+            <div className="mt-6 space-y-3">
+              {industrialModules.map((module, moduleIndex) => (
+                <details
+                  key={module.number}
+                  open={moduleIndex === 0}
+                  className="border border-border bg-background"
                 >
-                  <span className="text-sm text-primary">{String(index + 1).padStart(2, "0")}</span>
-                  <h3 className="font-medium">{lesson.title}</h3>
-                  <p className="text-sm text-muted-foreground">{lesson.summary}</p>
-                  <Link
-                    to="/lessons/$courseSlug/$lessonSlug"
-                    params={{ courseSlug: "industrial-robots", lessonSlug: lesson.slug }}
-                    className="text-sm font-medium text-primary underline underline-offset-4"
-                  >
-                    View lesson
-                  </Link>
-                </li>
+                  <summary className="cursor-pointer px-4 py-3 font-heading text-2xl">
+                    Module {module.number} · {module.title}
+                    <span className="ml-3 font-sans text-sm text-muted-foreground">
+                      {module.sections.reduce((n, s) => n + s.lessons.length, 0)} lessons
+                    </span>
+                  </summary>
+                  <div className="space-y-5 border-t border-border px-4 py-4">
+                    {module.sections.map((section) => (
+                      <div key={section.title}>
+                        <p className="text-xs uppercase text-primary">{section.title}</p>
+                        <ol className="mt-2 grid gap-x-8 md:grid-cols-2">
+                          {industrialOutline
+                            .filter(
+                              (entry) => entry.module === module && entry.section === section.title,
+                            )
+                            .map((entry) => (
+                              <li key={entry.slug} className="border-b border-border py-2 text-sm">
+                                <Link
+                                  to="/lessons/$courseSlug/$lessonSlug"
+                                  params={{
+                                    courseSlug: "industrial-robots",
+                                    lessonSlug: entry.slug,
+                                  }}
+                                  className="hover:text-primary"
+                                >
+                                  <span className="mr-2 text-primary">
+                                    {String(entry.indexInModule + 1).padStart(2, "0")}
+                                  </span>
+                                  {entry.title}
+                                </Link>
+                              </li>
+                            ))}
+                        </ol>
+                      </div>
+                    ))}
+                  </div>
+                </details>
               ))}
-            </ol>
+            </div>
           </div>
         </section>
       </main>

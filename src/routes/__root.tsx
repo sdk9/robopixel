@@ -7,17 +7,16 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/SiteHeader";
 
 const structuredData = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "RobotCodeHub",
-  url: "https://robotcodehub.com/",
+  name: "Code The Robot",
+  url: "https://codetherobot.com/",
   description: "Practical Ubuntu, C++, ROS 2 and simulation-first industrial robotics courses.",
 });
 
@@ -46,9 +45,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -86,24 +82,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "RobotCodeHub — Ubuntu, C++, ROS 2 & Industrial Robot Courses" },
+      { title: "Code The Robot — Ubuntu, C++, ROS 2 & Industrial Robot Courses" },
       {
         name: "description",
         content:
-          "A practical learning path through Ubuntu Linux, C++, ROS 2 Lyrical Luth and seven industrial robot models.",
+          "A practical learning path through Ubuntu Linux, C++, ROS 2 Lyrical Luth and 235 lessons on seven industrial robot types.",
       },
-      { name: "author", content: "RobotCodeHub" },
-      { property: "og:site_name", content: "RobotCodeHub" },
-      { property: "og:title", content: "RobotCodeHub — Practical Robotics Courses" },
+      { name: "author", content: "Code The Robot" },
+      { property: "og:site_name", content: "Code The Robot" },
+      { property: "og:title", content: "Code The Robot — Practical Robotics Courses" },
       {
         property: "og:description",
         content: "Learn Ubuntu Linux, C++, ROS 2 Lyrical Luth and industrial robot programming.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "https://robotcodehub.com/images/robotcodehub-social.webp" },
+      { property: "og:image", content: "https://codetherobot.com/images/codetherobot-social.webp" },
       {
         name: "twitter:image",
-        content: "https://robotcodehub.com/images/robotcodehub-social.webp",
+        content: "https://codetherobot.com/images/codetherobot-social.webp",
       },
       { name: "twitter:card", content: "summary_large_image" },
     ],

@@ -188,6 +188,10 @@
     2px 2px 0 color-mix(in oklab, var(--ink) 28%, transparent);
 }
 
+.pixel-wordmark > span + span {
+  margin-left: 0.55em;
+}
+
 .pixel-wordmark-robot {
   color: #c94338;
 }
@@ -202,6 +206,64 @@
 
 .pixel-wordmark:hover {
   transform: translate(-1px, -1px);
+}
+
+.robot-lab-stage {
+  image-rendering: pixelated;
+}
+
+.robot-lab-sprite-motion {
+  transition: transform 620ms steps(8, end);
+}
+
+.robot-lab-arm-motion polyline,
+.robot-lab-arm-motion rect {
+  transition: all 620ms steps(8, end);
+}
+
+.robot-lab-map-label,
+.robot-lab-hud-text {
+  fill: #ffffff;
+  stroke: #1a1f2b;
+  stroke-width: 2.5px;
+  paint-order: stroke;
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  letter-spacing: 0.02em;
+}
+
+.robot-lab-hud-text {
+  font-size: 7.5px;
+}
+
+.robot-lab-scan {
+  fill: none;
+  stroke: #a98bff;
+  stroke-width: 4;
+  animation: robot-lab-scan 900ms steps(5, end) infinite;
+}
+
+@keyframes robot-lab-scan {
+  0% {
+    opacity: 1;
+    r: 8px;
+  }
+  100% {
+    opacity: 0;
+    r: 34px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .robot-lab-sprite-motion,
+  .robot-lab-arm-motion polyline,
+  .robot-lab-arm-motion rect {
+    transition: none;
+  }
+
+  .robot-lab-scan {
+    animation: none;
+  }
 }
 
 @layer base {

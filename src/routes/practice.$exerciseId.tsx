@@ -29,12 +29,12 @@ export const Route = createFileRoute("/practice/$exerciseId")({
   },
   head: ({ loaderData }) => {
     const title = loaderData
-      ? `${loaderData.title} | Practice Lab | RobotCodeHub`
-      : "Practice lab unavailable | RobotCodeHub";
+      ? `${loaderData.title} | Practice Lab | Code The Robot`
+      : "Practice lab unavailable | Code The Robot";
     const description = loaderData?.brief ?? "This practice lab could not be found.";
     const url = loaderData
-      ? `https://robotcodehub.com/practice/${loaderData.id}`
-      : "https://robotcodehub.com/practice";
+      ? `https://codetherobot.com/practice/${loaderData.id}`
+      : "https://codetherobot.com/practice";
     return {
       meta: [
         { title },

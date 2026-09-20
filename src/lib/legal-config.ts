@@ -1,7 +1,7 @@
 import { SUPPORT_EMAIL } from "@/lib/course-catalog";
 
 export const legalConfig = {
-  businessName: import.meta.env["VITE_LEGAL_BUSINESS_NAME"] || "RobotCodeHub",
+  businessName: import.meta.env["VITE_LEGAL_BUSINESS_NAME"] || "Code The Robot",
   postalAddress:
     import.meta.env["VITE_LEGAL_POSTAL_ADDRESS"] ||
     "Available from support before any live purchase",

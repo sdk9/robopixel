@@ -5,14 +5,14 @@ import { labs } from "@/lib/lab-catalog";
 export const Route = createFileRoute("/labs/")({
   head: () => ({
     meta: [
-      { title: "ROS 2 Lab Workspace | RobotCodeHub" },
+      { title: "ROS 2 Lab Workspace | Code The Robot" },
       {
         name: "description",
         content:
           "Build a ROS 2 Lyrical C++ workspace through eight guided, documentation-linked robotics labs.",
       },
-      { property: "og:title", content: "ROS 2 Lab Workspace | RobotCodeHub" },
-      { property: "og:url", content: "https://robotcodehub.com/labs" },
+      { property: "og:title", content: "ROS 2 Lab Workspace | Code The Robot" },
+      { property: "og:url", content: "https://codetherobot.com/labs" },
       {
         property: "og:description",
         content: "Eight guided ROS 2 Lyrical setup and C++ robotics labs.",
@@ -20,7 +20,7 @@ export const Route = createFileRoute("/labs/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
-    links: [{ rel: "canonical", href: "https://robotcodehub.com/labs" }],
+    links: [{ rel: "canonical", href: "https://codetherobot.com/labs" }],
   }),
   component: LabsIndex,
 });

@@ -12,12 +12,12 @@ export const Route = createFileRoute("/labs/$labSlug")({
   },
   head: ({ loaderData }) => {
     const title = loaderData
-      ? `${loaderData.title} | ROS 2 Labs | RobotCodeHub`
-      : "Lab unavailable | RobotCodeHub";
+      ? `${loaderData.title} | ROS 2 Labs | Code The Robot`
+      : "Lab unavailable | Code The Robot";
     const description = loaderData?.summary ?? "This ROS 2 lab could not be found.";
     const url = loaderData
-      ? `https://robotcodehub.com/labs/${loaderData.slug}`
-      : "https://robotcodehub.com/labs";
+      ? `https://codetherobot.com/labs/${loaderData.slug}`
+      : "https://codetherobot.com/labs";
     return {
       meta: [
         { title },

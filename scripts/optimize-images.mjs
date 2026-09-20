@@ -50,4 +50,4 @@ for (const image of lessonImages) {
 await sharp(path.join(sourceDirectory, "industrial-robots-pixel-art.png"))
   .resize(1200, 630, { fit: "cover" })
   .webp({ quality: 84 })
-  .toFile(path.join(outputDirectory, "robotcodehub-social.webp"));
+  .toFile(path.join(outputDirectory, "codetherobot-social.webp"));

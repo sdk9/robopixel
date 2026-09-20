@@ -66,7 +66,7 @@ export function LessonAccessGate({
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
         {state.status === "signed-out"
           ? "Sign in and purchase the course, or sign in with the account that already owns it."
-          : "Purchase the course once to unlock all seven lessons permanently."}
+          : "Purchase the course once to unlock all 235 lessons permanently."}
       </p>
       <div className="mt-7 text-left">
         <IndustrialCheckout />

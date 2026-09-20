@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://robotcodehub.com/sitemap.xml
+Sitemap: https://codetherobot.com/sitemap.xml

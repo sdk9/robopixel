@@ -3,11 +3,11 @@ import { describe, expect, it } from "vitest";
 import { lessonCourses } from "@/lib/lesson-catalog";
 
 describe("lesson catalogue", () => {
-  it("contains 45 uniquely addressed lessons", () => {
+  it("contains 321 uniquely addressed lessons", () => {
     const lessons = Object.values(lessonCourses).flatMap((course) =>
       course.lessons.map((lesson) => `${course.slug}/${lesson.slug}`),
     );
-    expect(lessons).toHaveLength(45);
+    expect(lessons).toHaveLength(321);
     expect(new Set(lessons).size).toBe(lessons.length);
   });
 

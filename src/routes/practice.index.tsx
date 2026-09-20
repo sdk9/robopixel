@@ -7,23 +7,23 @@ import { practiceExercises, practiceGroups } from "@/lib/practice-catalog";
 export const Route = createFileRoute("/practice/")({
   head: () => ({
     meta: [
-      { title: "Browser Practice Labs | RobotCodeHub" },
+      { title: "Browser Practice Labs | Code The Robot" },
       {
         name: "description",
         content:
           "Write C++ and ROS 2 exercises in your browser, compile them for real and get your work checked automatically, lab by lab.",
       },
-      { property: "og:title", content: "Browser Practice Labs | RobotCodeHub" },
+      { property: "og:title", content: "Browser Practice Labs | Code The Robot" },
       {
         property: "og:description",
         content:
           "32 guided C++ and ROS 2 exercises with real compiling, expected output and automatic checks.",
       },
-      { property: "og:url", content: "https://robotcodehub.com/practice" },
+      { property: "og:url", content: "https://codetherobot.com/practice" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
-    links: [{ rel: "canonical", href: "https://robotcodehub.com/practice" }],
+    links: [{ rel: "canonical", href: "https://codetherobot.com/practice" }],
   }),
   component: PracticeIndex,
 });

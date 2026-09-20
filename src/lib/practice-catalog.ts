@@ -54,7 +54,7 @@ int main() {
   return 0;
 }
 `,
-    expectedOutput: "RobotCodeHub toolchain ready\nbuild 1",
+    expectedOutput: "Code The Robot toolchain ready\nbuild 1",
     checks: [
       { label: "Includes <iostream>", pattern: "#include\\s*<iostream>" },
       { label: "Uses std::cout", pattern: "std::cout" },

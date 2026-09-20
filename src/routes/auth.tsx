@@ -6,13 +6,12 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { lovable } from "@/integrations/lovable";
 import { supabase } from "@/integrations/supabase/client";
 import { safeInternalRedirect } from "@/lib/safe-redirect";
 
-const title = "Sign in to RobotCodeHub";
+const title = "Sign in to Code The Robot";
 const description =
-  "Sign in or create a RobotCodeHub account to save your practice progress and open your purchased course.";
+  "Sign in or create a Code The Robot account to save your practice progress and open your purchased course.";
 
 const searchSchema = z.object({
   redirect: z.string().optional().transform(safeInternalRedirect),
@@ -22,7 +21,7 @@ export const Route = createFileRoute("/auth")({
   validateSearch: searchSchema,
   head: () => ({
     meta: [
-      { title: `${title} | RobotCodeHub` },
+      { title: `${title} | Code The Robot` },
       { name: "description", content: description },
       { name: "robots", content: "noindex, nofollow" },
       { property: "og:title", content: title },
@@ -63,15 +62,19 @@ function AuthPage() {
     try {
       const callback = new URL("/auth", window.location.origin);
       callback.searchParams.set("redirect", destination);
-      const result = await lovable.auth.signInWithOAuth("google", {
-        redirect_uri: callback.toString(),
+      const { data, error: oauthError } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+          redirectTo: callback.toString(),
+          skipBrowserRedirect: true,
+        },
       });
-      if (result.error) {
-        setError(result.error.message);
+      if (oauthError) {
+        setError(oauthError.message);
         return;
       }
-      if (result.redirected) return;
-      window.location.replace(destination);
+      if (!data.url) throw new Error("Google sign-in could not be started.");
+      window.location.assign(data.url);
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "Google sign-in failed.");
     }
@@ -114,7 +117,7 @@ function AuthPage() {
     <main className="grid min-h-screen place-items-center bg-background px-5 py-12 text-foreground">
       <div className="w-full max-w-md border border-border bg-card p-7">
         <Link to="/" className="font-heading text-xl">
-          RobotCodeHub
+          Code The Robot
         </Link>
         <h1 className="mt-5 font-heading text-4xl leading-tight">
           {mode === "signup"
